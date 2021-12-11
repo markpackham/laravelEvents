@@ -2,8 +2,11 @@
 
 namespace App\Listeners;
 
+use App\Events\UserSubscribed;
+use App\Mail\UserSubscribedMessage;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Support\Facades\DB;
 
 class EmailOwnerAboutSubscription
 {
@@ -23,8 +26,12 @@ class EmailOwnerAboutSubscription
      * @param  object  $event
      * @return void
      */
-    public function handle($event)
+    public function handle(UserSubscribed $event)
     {
-        //
+        DB::table('newsletter')->insert([
+            'email' => $event->email
+        ]);
+
+        Mail::to($event->email)->send();
     }
 }
