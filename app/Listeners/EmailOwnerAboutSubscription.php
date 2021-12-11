@@ -4,6 +4,7 @@ namespace App\Listeners;
 
 use App\Events\UserSubscribed;
 use App\Mail\UserSubscribedMessage;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\DB;
