@@ -32,6 +32,6 @@ class EmailOwnerAboutSubscription
             'email' => $event->email
         ]);
 
-        Mail::to($event->email)->send();
+        Mail::to($event->email)->send(new UserSubscribedMessage());
     }
 }
