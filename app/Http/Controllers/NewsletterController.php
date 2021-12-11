@@ -10,4 +10,8 @@ class NewsletterController extends Controller
     {
         return view('index');
     }
+
+    public function subscribe()
+    {
+    }
 }
